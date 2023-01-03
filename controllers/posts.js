@@ -6,7 +6,7 @@ const PostsController = {
       if (err) {
         throw err;
       }
-
+      posts = posts.sort((a, b) => b.date - a.date)
       res.render("posts/index", { posts: posts });
     });
   },
@@ -14,7 +14,9 @@ const PostsController = {
     res.render("posts/new", {});
   },
   Create: (req, res) => {
+    req.body.date = new Date()
     const post = new Post(req.body);
+    console.log({reqBody: req.body})
     post.save((err) => {
       if (err) {
         throw err;

@@ -1,3 +1,4 @@
+const { ObjectID } = require("mongodb");
 var mongoose = require("mongoose");
 
 require("../mongodb_helper");
@@ -13,6 +14,21 @@ describe("Post model", () => {
   it("has a message", () => {
     var post = new Post({ message: "some message" });
     expect(post.message).toEqual("some message");
+  });
+  it("has a date", () => {
+    var post = new Post({
+      message: "some message",
+      date: new Date("2022-12-25"),
+    });
+    expect(post.date.toDateString()).toEqual("Sun Dec 25 2022");
+  });
+  it("has an author", () => {
+    var post = new Post({
+      message: "some message",
+      date: new Date("2022-12-25"),
+      author: ObjectID("63b452e3a789c8c110e1042f"),
+    });
+    expect(post.author).toMatchObject(ObjectID("63b452e3a789c8c110e1042f"));
   });
 
   it("can list all posts", (done) => {

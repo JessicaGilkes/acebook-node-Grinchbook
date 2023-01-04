@@ -40,15 +40,21 @@ describe("Post model", () => {
   });
 
   it("can save a post", (done) => {
-    var post = new Post({ message: "some message" });
+    var post = new Post({
+      message: "some message",
+      author: ObjectID("63b452e3a789c8c110e1042f"),
+    });
 
     post.save((err) => {
       expect(err).toBeNull();
 
       Post.find((err, posts) => {
         expect(err).toBeNull();
-
-        expect(posts[0]).toMatchObject({ message: "some message" });
+        expect(posts[0]).toMatchObject({
+          message: "some message",
+          likes: 0,
+          author: ObjectID("63b452e3a789c8c110e1042f"),
+        });
         done();
       });
     });

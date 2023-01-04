@@ -7,11 +7,11 @@ const PostsController = {
         throw err;
       }
       posts = posts.sort((a, b) => b.date - a.date)
-      res.render("posts/index", { posts: posts });
+      res.render("posts/index", { posts: posts, loggedin: req.session.user});
     });
   },
   New: (req, res) => {
-    res.render("posts/new", {});
+    res.render("posts/new", {loggedin: req.session.user});
   },
   Create: (req, res) => {
     req.body.date = new Date()

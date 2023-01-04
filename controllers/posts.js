@@ -15,6 +15,7 @@ const PostsController = {
   },
   Create: (req, res) => {
     req.body.date = new Date()
+    req.body.author = req.session.user._id
     const post = new Post(req.body);
     console.log({reqBody: req.body})
     post.save((err) => {

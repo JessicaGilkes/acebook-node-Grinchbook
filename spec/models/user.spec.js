@@ -26,6 +26,15 @@ describe("User model", () => {
     expect(user.password).toEqual("password");
   });
 
+  it("has a username", () => {
+    const user = new User({
+      email: "someone@example.com",
+      password: "password",
+      username: "someone1"
+    });
+    expect(user.username).toEqual("someone1");
+  });
+
   it("can list all users", (done) => {
     User.find((err, users) => {
       expect(err).toBeNull();

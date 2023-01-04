@@ -1,8 +1,10 @@
+const { ObjectID } = require("mongodb");
 const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
   message: String,
   date: Date,
+  author: ObjectID,
   likes: { type: Number, default: 0 }
 });
 

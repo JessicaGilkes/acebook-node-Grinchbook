@@ -14,6 +14,10 @@ describe("Post model", () => {
     var post = new Post({ message: "some message" });
     expect(post.message).toEqual("some message");
   });
+  it("has a date", () => {
+    var post = new Post({ message: "some message", date: new Date("2022-12-25") });
+    expect(post.date.toDateString()).toEqual("Sun Dec 25 2022");
+  });
 
   it("can list all posts", (done) => {
     Post.find((err, posts) => {

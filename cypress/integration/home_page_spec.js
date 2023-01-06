@@ -1,29 +1,24 @@
 describe("Home page", () => {
-  it("has a title", () => {
+  beforeEach(() => {
+    cy.task("seedUsers", "homePageSpec")
     cy.visit("/");
+  })
+  it("has a title", () => {
     cy.get(".title").should("contain", "Acebook");
   });
 
   it("has a username", () => {
     // check for valued customer
-    cy.visit("/");
     cy.get("#username").should("contain", "Hello valued customer");
-
-    // create new user
-    cy.visit("/users/new");
-    cy.get("#email").type("someone@homepagespec.com");
-    cy.get("#password").type("password");
-    cy.get("#username").type("someone1");
-    cy.get("#submit").click();
 
     // sign in
     cy.visit("/sessions/new");
-    cy.get("#email").type("someone@homepagespec.com");
-    cy.get("#password").type("password");
+    cy.get("#email").type("picard@ng.com");
+    cy.get("#password").type("makeItSo");
     cy.get("#submit").click();
 
     // check for username
     cy.visit("/");
-    cy.get("#username").should("contain", "someone1");
+    cy.get("#username").should("contain", "Jean Luc");
   });
 });

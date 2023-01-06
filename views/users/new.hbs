@@ -1,5 +1,9 @@
 <h1>Sign Up</h1>
-
+{{#if emailinuse}}
+<div>
+  <p id="email-error"> Email already in use, try another! </p>
+</div>
+{{/if}}
 <form id="new-user-form" action="/users" method="post">
 <div>
   <label for="email">Email: </label>

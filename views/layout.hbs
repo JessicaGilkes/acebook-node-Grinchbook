@@ -11,7 +11,11 @@
       <a href="/">Home</a>
       <a href="/friends">Friends</a>
       <a href="/posts">Post Feed</a>
-      <a href="/logout">Log Out</a>  
+      <div class="logout">
+        <form action='/sessions?_method=DELETE' method='POST'>
+        <input type="submit" value="Log Out">
+        </form>
+      </div>
     </div>
 
     

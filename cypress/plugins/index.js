@@ -23,5 +23,15 @@ module.exports = (on) => {
       dbFuncs.dropUsers();
       return null;
     },
+    seedUsers(test_file) {
+      console.log("seeding the users table via a task set in " + test_file);
+      dbFuncs.seedUsers();
+      return null;
+    },
+    seedPosts(test_file) {
+      console.log("seeding the posts table via a task set in " + test_file);
+      dbFuncs.seedPosts();
+      return null;
+    }
   });
 };

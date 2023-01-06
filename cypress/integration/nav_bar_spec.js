@@ -1,5 +1,5 @@
 describe("nav bar", () => {
-    it ("has a nav bar has sign-up and login if not logged in", () => {
+    it ("nav bar has sign-up and login, but not Post Feed, if not logged in", () => {
         cy.visit("/")
         cy.get(".topnav").contains("a", "Sign Up")
         cy.get(".topnav").contains("a", "Log In")

@@ -16,16 +16,11 @@ describe("nav bar", () => {
     cy.url().should("include", "sessions/new");
   });
   const signUp = () => {
-    // sign up
-    cy.visit("/users/new");
-    cy.get("#email").type("someone@example.com");
-    cy.get("#password").type("password");
-    cy.get("#submit").click();
-
     // sign in
+    cy.task("seedUsers", "navBarSpec");
     cy.visit("/sessions/new");
-    cy.get("#email").type("someone@example.com");
-    cy.get("#password").type("password");
+    cy.get("#email").type("picard@ng.com");
+    cy.get("#password").type("makeItSo");
     cy.get("#submit").click();
   };
   it("has links to log out, home, friends and post if user is signed in", () => {

@@ -27,6 +27,11 @@ module.exports = (on) => {
       console.log("seeding the users table via a task set in " + test_file);
       dbFuncs.seedUsers();
       return null;
+    },
+    seedPosts(test_file) {
+      console.log("seeding the posts table via a task set in " + test_file);
+      dbFuncs.seedPosts();
+      return null;
     }
   });
 };

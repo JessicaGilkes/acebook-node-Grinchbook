@@ -1,4 +1,5 @@
 body {
+  width:95vw;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align:center;
@@ -12,6 +13,9 @@ a {
 .topnav {
   background-color: #333;
   overflow: hidden;
+  width: 90vw;
+  margin: auto;
+  display:block;
 }
 
 /* Style the links inside the navigation bar */
@@ -29,11 +33,27 @@ a {
   color: black;
 }
 
+.topnav a.active {
+  background-color: rgb(180, 180, 180);
+  color: black;
+}
+
 .logout {
-  text-align: right;
-  float: left;
+  float: right;
+  background-color: #333;
+  overflow: hidden;
   color: #ffffff;
   text-align: center;
   padding: 14px 16px;
   font-size: 17px;
+}
+
+.logout:hover {
+  background-color: rgb(180, 180, 180);
+  color: black;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
 }

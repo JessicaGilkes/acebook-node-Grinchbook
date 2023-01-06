@@ -7,13 +7,13 @@
   <body>
     
     {{#if loggedin}}
-    <div class="topnav">
+    <div class="topnav sticky">
       <a href="/">Home</a>
       <a href="/friends">Friends</a>
       <a href="/posts">Post Feed</a>
-      <div class="logout">
+      <div>
         <form action='/sessions?_method=DELETE' method='POST'>
-        <input type="submit" value="Log Out">
+          <input type="submit" value="Log Out" class="logout">
         </form>
       </div>
     </div>

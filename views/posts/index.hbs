@@ -1,10 +1,10 @@
 <h1>Timeline</h1>
 <ul class="posts">
-  {{#each posts}}
+  {{#each posts as |post|}}
   <div class="post-block">
-    <li>{{this.message}}</li> 
-    <li>{{this.likes}} likes</li>
-    <li>date: {{this.date}}</li>
+    <li>{{post.message}}</li> 
+    <li>{{post.likes}} likes</li>
+    <li>{{post.date}}</li>
   </div>
   <p></p>
   {{/each}}

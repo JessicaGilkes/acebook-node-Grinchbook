@@ -1,5 +1,49 @@
-<h1>{{author}} says</h1>
 
-<p> {{post.message}}</p>
+ <head>
+    {{! <link href='/stylesheets/style.css' /> }}
+    <style>
+
+ * {
+            background: #193269;
+            color: white;
+        }
+
+.header{
+text-align: left;
+}
+
+.post{
+
+}
+
+   /*    body {
+  padding: 100px;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align:center;
+}
+*/
+
+    </style>
+  </head>
+
+<body>
+    <div class="header">
+<h1>{{author}} says</h1>
+<img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" width="200" height="200">
+</div>
+
+<div class="post">
+<p> {{post.date}} </p>
+<p> {{post.message}} </p>
+<img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18061565.jpg" width="500" height="333">
+<p>Likes</p>
+<p>Comments</p>
+</div>
+
+
+
+</body>
+
+
 
 

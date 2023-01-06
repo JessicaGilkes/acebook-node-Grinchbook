@@ -1,0 +1,33 @@
+const Post = require("../models/post");
+const User = require("../models/user");
+const { ObjectID } = require("mongodb");
+
+const SinglePostController = {
+  Index: (req, res) => {
+    const id = ObjectID(req.query.id);
+    Post.findById(id, (err, post) => {
+      if (err) {
+        throw err;
+      }
+      console.log(post);
+
+      const authorID = post.author;
+      console.log(typeof authorID)
+      User.findById(authorID, (err, author) => {
+        if (err) {
+          throw err;
+        }
+        console.log(author);
+        res.render("singlepost/index", {
+          post,
+          author: author.username,
+          loggedin: req.session.user,
+        });
+      });
+      // res.send("Hello we are here" + (req.query.id));
+      // console.log(req.url);
+    });
+  },
+};
+
+module.exports = SinglePostController;

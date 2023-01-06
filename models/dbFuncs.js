@@ -7,13 +7,13 @@ mongoose.connect("mongodb://0.0.0.0/acebook_test", {
 
 const User = require("./user");
 const dropUsers = async () => {
-  console.log("dropping users");
+//   console.log("dropping users");
   await User.deleteMany({});
 };
 
 const Post = require("./post");
 const dropPosts = async () => {
-  console.log("Dropping posts");
+//   console.log("Dropping posts");
   await Post.deleteMany({});
 };
 
@@ -32,13 +32,12 @@ const users = [
 const seedUsers = async () => {
   await dropUsers();
   for (let u = 0; u < users.length; u++) {
-    console.log({ newUser: users[u] });
     const user = new User(users[u]);
     user.save((err) => {
       if (err) {
         throw err;
       }
-      console.log("saved user." + user.username);
+    //   console.log("saved user." + user.username);
     });
   }
 };
@@ -69,12 +68,11 @@ const seedPosts = async () => {
   await dropPosts();
   for (let p = 0; p < posts.length; p++) {
     const newPost = new Post(posts[p]);
-    console.log({ newPost });
     newPost.save((err) => {
       if (err) {
         throw err;
       }
-      console.log("saved post: " + newPost.message)
+    //   console.log("saved post: " + newPost.message)
     });
   }
 };

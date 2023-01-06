@@ -1,6 +1,5 @@
 describe("Registration", () => {
   beforeEach(() => {
-    // cy.visit('/resetdb');
     cy.task("resetUsers", "user_can_sign_up_spec.js")
   })
   it("A user signs up and is redirected to sign in", () => {

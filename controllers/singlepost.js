@@ -17,6 +17,10 @@ const SinglePostController = {
         if (err) {
           throw err;
         }
+        if (!author) {
+          console.log(`can't find author with ID ${authorID}`);
+          author = {username: "anon"}
+        }
         console.log(author);
         res.render("singlepost/index", {
           post,

@@ -1,5 +1,5 @@
 const User = require("./user");
-const { kirkID, picardID, siskoID } = require("./usesrIDs");
+const { kirkID, picardID, siskoID, rikerID, troyID, worfID } = require("./usesrIDs");
 
 const users = [
   {
@@ -7,12 +7,32 @@ const users = [
     password: "finalFrontier",
     username: "James T Kirk",
     _id: kirkID,
+    friends: [siskoID]
   },
   {
     email: "picard@ng.com",
     password: "makeItSo",
     username: "Jean Luc",
     _id: picardID,
+    friends: [rikerID, troyID, worfID]
+  },
+  {
+    email: "riker@ng.com",
+    password: "numberOne",
+    username: "William Riker",
+    _id: rikerID,
+  },
+  {
+    email: "troy@ng.com",
+    password: "counsellor",
+    username: "Deanna Troy",
+    _id: troyID,
+  },
+  {
+    email: "worf@ng.com",
+    password: "klingon",
+    username: "Worf",
+    _id: worfID,
   },
   {
     email: "sisco@ds9.com",

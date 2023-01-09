@@ -10,7 +10,7 @@ describe("Timeline", () => {
     // submit a post
     cy.task("seedPosts", "userCanSubmitPost")
     cy.visit("/posts");
-    cy.contains("New post").click();
+    cy.contains("create new post").click();
 
     cy.get("#message").type("Hello, world!");
     cy.get("#new-post-form").submit();

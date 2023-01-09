@@ -10,6 +10,7 @@ const homeRouter = require("./routes/home");
 const postsRouter = require("./routes/posts");
 const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
+const singlePostRouter = require("./routes/singlepost")
 const friendsRouter = require("./routes/friends")
 
 const app = express();
@@ -59,6 +60,7 @@ app.use("/", homeRouter);
 app.use("/posts", sessionChecker, postsRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/users", usersRouter);
+app.use("/singlepost", singlePostRouter);
 app.use("/friends", friendsRouter)
 
 // catch 404 and forward to error handler

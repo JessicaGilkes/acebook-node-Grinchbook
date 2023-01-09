@@ -13,10 +13,16 @@ const dropUsers = async () => {
   await User.deleteMany({});
 };
 
+const idToUser = (id) => {
+  User.findOne({ _id: id }).then((user) => {
+    return user;
+  });
+};
+
 const Post = require("./post");
 const dropPosts = async () => {
   //   console.log("Dropping posts");
   await Post.deleteMany({});
 };
 
-module.exports = { dropUsers, dropPosts, seedUsers, seedPosts };
+module.exports = { dropUsers, dropPosts, seedUsers, seedPosts, idToUser };

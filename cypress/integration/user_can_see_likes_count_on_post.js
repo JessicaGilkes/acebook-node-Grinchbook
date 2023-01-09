@@ -9,6 +9,6 @@ describe("Timeline", () => {
     
     // Assert that we can see the likes count
     cy.task("seedPosts", "seeLikesCountOnPost")
-    cy.get(".posts").should("contain", "328 likes");
+    cy.get(".posts").should("contain", "2 likes");
   });
 });

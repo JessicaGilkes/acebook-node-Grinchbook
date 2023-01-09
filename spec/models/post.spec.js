@@ -50,11 +50,12 @@ describe("Post model", () => {
 
       Post.find((err, posts) => {
         expect(err).toBeNull();
-        expect(posts[0]).toMatchObject({
-          message: "some message",
-          likes: 0,
-          author: ObjectID("63b452e3a789c8c110e1042f"),
-        });
+        let post = posts[0];
+        expect(post.message).toEqual("some message");
+        expect(post.likes.count).toEqual(0);
+        expect(post.likes.voters.length).toEqual(0);
+        expect(post.comments.length).toEqual(0);
+        expect(post.author).toEqual(ObjectID("63b452e3a789c8c110e1042f"));
         done();
       });
     });

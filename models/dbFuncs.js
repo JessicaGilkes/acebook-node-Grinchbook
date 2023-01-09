@@ -7,17 +7,19 @@ mongoose.connect("mongodb://0.0.0.0/acebook_test", {
 
 const User = require("./user");
 const dropUsers = async () => {
-//   console.log("dropping users");
+  //   console.log("dropping users");
   await User.deleteMany({});
 };
 
 const Post = require("./post");
 const dropPosts = async () => {
-//   console.log("Dropping posts");
+  //   console.log("Dropping posts");
   await Post.deleteMany({});
 };
 
 const kirkID = ObjectID("63b810bd87affe92a654e712");
+const picardID = ObjectID("63b810bd87affe92a654e804");
+const siskoID = ObjectID("63b810bd87affe92a654e999");
 const users = [
   {
     email: "kirk@original.com",
@@ -25,8 +27,18 @@ const users = [
     username: "James T Kirk",
     _id: kirkID,
   },
-  { email: "picard@ng.com", password: "makeItSo", username: "Jean Luc" },
-  { email: "sisco@ds9.com", password: "emissary", username: "Benjamin Sisko" },
+  {
+    email: "picard@ng.com",
+    password: "makeItSo",
+    username: "Jean Luc",
+    _id: picardID,
+  },
+  {
+    email: "sisco@ds9.com",
+    password: "emissary",
+    username: "Benjamin Sisko",
+    _id: siskoID,
+  },
 ];
 
 const seedUsers = async () => {
@@ -37,7 +49,7 @@ const seedUsers = async () => {
       if (err) {
         throw err;
       }
-    //   console.log("saved user." + user.username);
+      //   console.log("saved user." + user.username);
     });
   }
 };
@@ -45,20 +57,27 @@ const seedUsers = async () => {
 const posts = [
   {
     message: "Space: the final frontier",
-    likes: 328,
+    likes: { count: 2, voters: [siskoID, picardID] },
     author: kirkID,
     date: new Date("1966-09-06"),
   },
   {
     message: "These are the voyages of the starship.... Enterprise.",
-    likes: 209,
+    likes: { count: 1, voters: [siskoID] },
+    comments: [
+      { content: "You're taking too long between phrases.", user_id: picardID, date: new Date("1988-09-06") },
+      { content: "It's for dramatic effect", user_id: kirkID, date: new Date("1988-09-06") },
+      { content: "And coming up: Try to say where no ONE has gone before", user_id: picardID, date: new Date("1988-09-06") },
+      { content: "It's the sixties, we didn't know better than to put women in short skirts", user_id: kirkID, date: new Date("1988-09-07") },
+      { content: "You have warp drive and teleportation, for God's sake", user_id: picardID, date: new Date("1988-09-07") },
+    ],
     author: kirkID,
     date: new Date("1966-09-13"),
   },
   {
     message:
       "It's five year mission to explore new worlds and new civilisations.",
-    likes: 199,
+    likes: {count: 0, voters: []},
     author: kirkID,
     date: new Date("1966-09-20"),
   },
@@ -72,7 +91,7 @@ const seedPosts = async () => {
       if (err) {
         throw err;
       }
-    //   console.log("saved post: " + newPost.message)
+      //   console.log("saved post: " + newPost.message)
     });
   }
 };

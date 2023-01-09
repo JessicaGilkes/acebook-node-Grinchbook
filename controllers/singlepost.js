@@ -9,7 +9,7 @@ const SinglePostController = {
       if (err) {
         throw err;
       }
-      console.log(post);
+      console.log("From singlepost controller:", post);
 
       const authorID = post.author;
       console.log(typeof authorID)

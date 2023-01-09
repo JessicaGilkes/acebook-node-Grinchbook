@@ -5,13 +5,26 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    
     {{#if loggedin}}
-    <form action='/sessions?_method=DELETE' method='POST'>
-      <input type="submit" value="Log Out">
-    </form>
+    <div class="topnav sticky">
+      <a href="/">Home</a>
+      <a href="/friends">Friends</a>
+      <a href="/posts">Post Feed</a>
+      <div>
+        <form action='/sessions?_method=DELETE' method='POST'>
+          <input type="submit" value="Log Out" class="logout">
+        </form>
+      </div>
+    </div>
+
+    
+
     {{else}}
-    <a href="/users/new">Sign Up</a>
-    <a href="/sessions/new">Log In</a>
+      <div class="topnav">
+      <a href="/users/new">Sign Up</a>
+      <a href="/sessions/new">Log In</a>
+    </div>
     {{/if}}
     {{{body}}}
   </body>

@@ -4,9 +4,11 @@
 <div id="friend-list">
     <p>There are {{friends.length}} people that you are following:</p>
     {{#each friends as |friend|}}
-    <div>
+    <form class="friend-form" action="/friends/unfriend" method="post">
+        <input type="text" value="{{friend._id}}" name="friend_id" hidden />
         <p>{{friend.username}}</p>
-    </div>
+        <input class="unfriend-button" type="submit" value="unfollow" />
+    </form>
     {{/each}}
 </div>
 <p>(They may not be following you).</p>

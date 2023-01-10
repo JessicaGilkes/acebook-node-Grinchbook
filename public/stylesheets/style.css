@@ -78,3 +78,20 @@ a:visited {
   background: #1f3b79;
   box-shadow: rgba(0, 0, 150, 0.35) 0px 5px 15px;
 }
+
+/* friends page */
+
+.friend-form {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: auto;
+}
+.friend-form:hover {
+  box-shadow: #2b4e9a 5px 10px 15px;
+}
+.unfriend-button {
+  height: fit-content;
+  align-self: center;
+  margin-left: 10px;
+}

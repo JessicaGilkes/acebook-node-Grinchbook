@@ -1,7 +1,26 @@
-const { kirkID, picardID, siskoID } = require("./usesrIDs");
+const { kirkID, picardID, siskoID, worfID, spockID } = require("./usesrIDs");
 const Post = require("./post");
+const today = new Date();
 
 const posts = [
+  {
+    message: "The blood worms at Quarks are awful!",
+    likes: { count: 2, voters: [siskoID, picardID] },
+    author: worfID,
+    date: today - 1000 * 3600 * 24 * 3,
+  },
+  {
+    message: "Live long and prosper",
+    likes: { count: 1, voters: [ picardID] },
+    author: spockID,
+    date: today - 1000 * 24,
+  },
+  {
+    message: "Make it so!",
+    likes: { count: 2, voters: [siskoID, picardID] },
+    author: picardID,
+    date: today - 1000 * 3600 * 5,
+  },
   {
     message: "Space: the final frontier",
     likes: { count: 2, voters: [siskoID, picardID] },

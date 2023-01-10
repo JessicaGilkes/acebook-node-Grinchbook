@@ -9,7 +9,7 @@ const PostsController = {
       posts = posts.sort((a, b) => b.date - a.date);
       posts.forEach((p) => {
         let elapsed = Date.now() - p.date;
-        console.log("time since", p.date, "is:", elapsed);
+        // console.log(p.message, "\ntime since", p.date, "is:", elapsed);
         const second = 1000;
         const minute = second * 60;
         const hour = minute * 60;
@@ -26,7 +26,7 @@ const PostsController = {
         } else {
           p.dateString = p.date.toDateString();
         }
-        console.log("so gave a dateString of:", p.dateString);
+        // console.log("so gave a dateString of:", p.dateString);
       });
       console.log("Posts controller.Index: ", posts[0].dateString);
       res.render("posts/index", { posts: posts, loggedin: req.session.user });

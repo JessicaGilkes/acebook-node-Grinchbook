@@ -1,5 +1,5 @@
 const User = require("./user");
-const { kirkID, picardID, siskoID, rikerID, troyID, worfID } = require("./usesrIDs");
+const { kirkID, picardID, siskoID, rikerID, troyID, worfID, spockID } = require("./usesrIDs");
 
 const users = [
   {
@@ -8,6 +8,13 @@ const users = [
     username: "James T Kirk",
     _id: kirkID,
     friends: [siskoID]
+  },
+  {
+    email: "spock@original.com",
+    password: "tinaTurner",
+    username: "Mr. Spock",
+    _id: spockID,
+    friends: [siskoID, kirkID]
   },
   {
     email: "picard@ng.com",

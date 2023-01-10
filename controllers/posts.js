@@ -9,11 +9,10 @@ const PostsController = {
       }
       posts = posts.sort((a, b) => b.date - a.date);
       posts.forEach((p) => {
-        console.log("controllers.Posts.Index: Getting timeStamp for", p.message);
+        // console.log("controllers.Posts.Index: Getting timeStamp for", p.message);
         p.dateString = timeStamp(p.date);
-        console.log("So gave a dateString of", p.dateString);
+        // console.log("So gave a dateString of", p.dateString);
       });
-      console.log("Posts controller.Index: ", posts[0].dateString);
       res.render("posts/index", { posts: posts, loggedin: req.session.user });
     });
   },

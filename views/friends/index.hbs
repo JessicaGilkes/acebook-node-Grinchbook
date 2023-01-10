@@ -1,5 +1,6 @@
 <h1>Friends</h1>
 <p>Hi, {{username}}!</p>
+{{#if hasFriends}}
 <div id="friend-list">
     <p>There are {{friends.length}} people that you are following:</p>
     {{#each friends as |friend|}}
@@ -9,3 +10,6 @@
     {{/each}}
 </div>
 <p>(They may not be following you).</p>
+{{else}}
+<p>It looks like you are not following anyone.</p>
+{{/if}}

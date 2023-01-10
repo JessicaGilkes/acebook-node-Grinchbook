@@ -12,6 +12,7 @@ const FriendsController = {
         res.render("friends/index", {
           loggedin: req.session.user,
           friends: user.friends,
+          hasFriends: user.friends.length > 0,
           username: req.session.user.username,
         });
       });

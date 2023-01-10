@@ -4,13 +4,16 @@ const { ObjectID } = require("mongodb");
 
 const SinglePostController = {
   Index: (req, res) => {
+    if (!req.session.user) {
+      res.redirect("/sessions/new");
+    }
     const id = ObjectID(req.query.id);
     Post.findById(id, (err, post) => {
       if (err) {
         throw err;
       }
-      console.log("From singlepost controller:", post);
-
+     console.log("From singlepost controller:", post);
+      
       const authorID = post.author;
       console.log(typeof authorID)
       User.findById(authorID, (err, author) => {
@@ -26,11 +29,13 @@ const SinglePostController = {
           post,
           author: author.username,
           loggedin: req.session.user,
+          likescount: post.likes.count,
+          voters: post.likes.voters
         });
       });
       // res.send("Hello we are here" + (req.query.id));
       // console.log(req.url);
-    });
+    })
   },
 };
 

@@ -1,6 +1,7 @@
 describe("Home page", () => {
   beforeEach(() => {
     cy.task("seedUsers", "homePageSpec")
+    cy.task("seedPosts", "homePageSpec")
     cy.visit("/");
   })
   it("has a title", () => {

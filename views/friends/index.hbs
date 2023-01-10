@@ -1,2 +1,11 @@
 <h1>Friends</h1>
-<p>Your friends will be listed here when that feature is implemented</p>
+<p>Hi, {{username}}!</p>
+<div id="friend-list">
+    <p>There are {{friends.length}} people that you are following:</p>
+    {{#each friends as |friend|}}
+    <div>
+        <p>{{friend.username}}</p>
+    </div>
+    {{/each}}
+</div>
+<p>(They may not be following you).</p>

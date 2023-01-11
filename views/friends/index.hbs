@@ -15,6 +15,7 @@
 {{else}}
 <p>It looks like you are not following anyone.</p>
 {{/if}}
+{{#if hasNonfriends}}
 <div id="not-friend-list" class="user-list">
     <p>Maybe you would like to follow some of these people:</p>
     {{#each notFriends as |notFriend|}}
@@ -25,3 +26,6 @@
     </form>
     {{/each}}
 </div>
+{{else}}
+<p>You are friends with everybody in the Grinchverse!!!!!</p>
+{{/if}}

@@ -14,15 +14,16 @@ const FriendsController = {
             res.render("friends/index", {
               loggedin: req.session.user,
               friends: user.friends,
-              notFriends: notFriends,
+              notFriends,
               hasFriends: user.friends.length > 0,
+              hasNonfriends: notFriends.length > 0,
               username: req.session.user.username,
             });
         })
       });
   },
   Unfriend: (req, res) => {
-    console.log("friendsController.unfriend wants to unfriend", req.body);
+    // console.log("friendsController.unfriend wants to unfriend", req.body);
     User.updateOne(
       { _id: req.session.user._id },
       { $pull: { friends: req.body.friend_id } },
@@ -32,7 +33,7 @@ const FriendsController = {
     );
   },
   Follow: (req, res) => {
-    console.log("friendsController.Follow wants to follow", req.body);
+    // console.log("friendsController.Follow wants to follow", req.body);
     User.updateOne(
       { _id: req.session.user._id },
       { $push: { friends: req.body.friend_id } },

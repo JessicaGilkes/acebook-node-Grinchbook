@@ -19,6 +19,7 @@ const posts = [
   },
   {
     message: "Make it so!",
+    photo: "https://i.pinimg.com/originals/9d/21/b9/9d21b90454e3065485ad3ed1b4204dfa.jpg",
     likes: { count: 2, voters: [siskoID, picardID] },
     author: picardID,
     date: today - 1000 * 3600 * 5,

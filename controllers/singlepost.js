@@ -1,4 +1,5 @@
 const Post = require("../models/post");
+const timeStamp = require("../helperFuncs/timeStamp");
 const { ObjectID } = require("mongodb");
 
 const SinglePostController = {
@@ -10,7 +11,13 @@ const SinglePostController = {
     Post.findById(id)
       .populate("author")
       .populate("likes.voters")
+      .populate("comments.user_id")
       .then((post) => {
+        post.comments.forEach(c => {
+          console.log("SinglePostController.Index: getting dateString for ", c.content)
+          c.dateString = timeStamp(c.date)
+          console.log("gave dateString: ", c.dateString)
+        })
         console.log(post);
         res.render("singlepost/index", {
           post,

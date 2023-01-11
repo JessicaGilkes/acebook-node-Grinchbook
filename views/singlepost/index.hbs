@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel='stylesheet' href='/stylesheets/post-feed.css' />
 <style>
 
 /* The Modal (background) */
@@ -48,16 +49,23 @@
 <body>
     <div class="header">
 <h1>{{author}} says</h1>
-<img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" width="200" height="200">
 </div>
 
-<div class="post">
-<p> {{post.date}} </p>
-<p> {{post.message}} </p>
-<img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18061565.jpg" width="500" height="333">
-<p>Likes {{post.likes.count}}</p>
+<div class="post-block">
+  <div class="post-metadata">
+    <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" width="200" height="200">
+
+    <p>Likes {{post.likes.count}}</p>
+    <button id="likeBtn">Open Likes</button>
+    <p> {{post.date}} </p>
+  </div>
+  <div class="post-contents">
+
+    <p> {{post.message}} </p>
+    <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18061565.jpg" width="500" height="333">
+    <p>Comments</p>
+  </div>
 <!-- Trigger/Open The Modal -->
-<button id="likeBtn">Open Likes</button>
 
 <!-- The Modal -->
 <div id="likeButton" class="modal">
@@ -71,7 +79,6 @@
   </div>
 
 </div>
-<p>Comments</p>
 </div>
 
 

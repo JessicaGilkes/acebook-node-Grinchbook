@@ -24,7 +24,7 @@ describe("Friends page", () => {
     cy.get("#not-friend-list").contains("Benjamin Sisko");
   });
   it("updates when one user friends another user", () => {
-    cy.contains("input", "Follow James T Kirk").click()
+    cy.get("#63b810bd87affe92a654e712").click()
     cy.contains("p", "There are 4 people that you are following:");
     cy.get("#friend-list").contains("William Riker");
     cy.get("#friend-list").contains("Deanna Troi");
@@ -32,7 +32,7 @@ describe("Friends page", () => {
     cy.get("#friend-list").contains("James T Kirk");
     cy.get("#not-friend-list").contains("Mr. Spock");
     cy.get("#not-friend-list").contains("Benjamin Sisko");
-    cy.contains("input", "Follow Mr. Spock").click()
+    cy.get("#63b810bd87affe92a654e713").click()
     cy.contains("p", "There are 5 people that you are following:");
     cy.get("#friend-list").contains("William Riker");
     cy.get("#friend-list").contains("Deanna Troi");
@@ -40,7 +40,7 @@ describe("Friends page", () => {
     cy.get("#friend-list").contains("James T Kirk");
     cy.get("#friend-list").contains("Mr. Spock");
     cy.get("#not-friend-list").contains("Benjamin Sisko");
-    cy.contains("input", "Follow Benjamin Sisko").click()
+    cy.get("#63b810bd87affe92a654e999").click()
     cy.contains("p", "There are 6 people that you are following:");
     cy.get("#friend-list").contains("William Riker");
     cy.get("#friend-list").contains("Deanna Troi");
@@ -50,4 +50,13 @@ describe("Friends page", () => {
     cy.get("#friend-list").contains("Benjamin Sisko");
     cy.contains("p", "You are friends with everybody in the Grinchverse!!!!!");
   });
+//   it("updates when one user unfollows another user", () => {
+//     cy.contains("p", "There are 3 people that you are following:");
+//     cy.get("#friend-list").contains("William Riker");
+//     cy.get("#friend-list").contains("Deanna Troi");
+//     cy.get("#friend-list").contains("Worf");
+//     cy.get("#not-friend-list").contains("James T Kirk");
+//     cy.get("#not-friend-list").contains("Mr. Spock");
+//     cy.get("#not-friend-list").contains("Benjamin Sisko");
+//   });
 });

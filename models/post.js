@@ -5,8 +5,8 @@ const PostSchema = new mongoose.Schema({
   message: String,
   photo: String,
   date: Date,
-  author: ObjectID,
-  likes: { count: { type: Number, default: 0 }, voters: [ObjectID] },
+  author: { type: ObjectID, ref: "User" },
+  likes: { count: { type: Number, default: 0 }, voters: [{ type: ObjectID, ref: "User" }] },
   comments: [{ content: String, user_id: ObjectID, date: Date }],
 });
 

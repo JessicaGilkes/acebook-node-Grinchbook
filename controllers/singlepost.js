@@ -1,36 +1,25 @@
 const Post = require("../models/post");
-const User = require("../models/user");
 const { ObjectID } = require("mongodb");
 
 const SinglePostController = {
   Index: (req, res) => {
+    if (!req.session.user) {
+      res.redirect("/sessions/new");
+    }
     const id = ObjectID(req.query.id);
-    Post.findById(id, (err, post) => {
-      if (err) {
-        throw err;
-      }
-      console.log("From singlepost controller:", post);
-
-      const authorID = post.author;
-      console.log(typeof authorID)
-      User.findById(authorID, (err, author) => {
-        if (err) {
-          throw err;
-        }
-        if (!author) {
-          console.log(`can't find author with ID ${authorID}`);
-          author = {username: "anon"}
-        }
-        console.log(author);
+    Post.findById(id)
+      .populate("author")
+      .populate("likes.voters")
+      .then((post) => {
+        console.log(post);
         res.render("singlepost/index", {
           post,
-          author: author.username,
+          author: post.author.username,
           loggedin: req.session.user,
+          likescount: post.likes.count,
+          voters: post.likes.voters.map(v => v.username).join(", ")
         });
       });
-      // res.send("Hello we are here" + (req.query.id));
-      // console.log(req.url);
-    });
   },
 };
 

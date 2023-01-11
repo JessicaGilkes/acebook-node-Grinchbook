@@ -32,7 +32,7 @@ const users = [
   {
     email: "troy@ng.com",
     password: "counsellor",
-    username: "Deanna Troy",
+    username: "Deanna Troi",
     _id: troyID,
   },
   {

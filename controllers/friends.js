@@ -17,6 +17,16 @@ const FriendsController = {
         });
       });
   },
+  Unfriend: (req, res) => {
+    console.log("friendsController.unfriend wants to unfriend", req.body);
+    User.updateOne(
+      { _id: req.session.user._id },
+      { $pull: { friends: req.body.friend_id } },
+      () => {
+        res.redirect("/friends");
+      }
+    );
+  },
 };
 
 module.exports = FriendsController;

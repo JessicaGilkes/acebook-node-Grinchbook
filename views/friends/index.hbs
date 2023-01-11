@@ -1,7 +1,7 @@
 <h1>Friends</h1>
 <p>Hi, {{username}}!</p>
 {{#if hasFriends}}
-<div id="friend-list">
+<div id="friend-list" class="user-list">
     <p>There are {{friends.length}} people that you are following:</p>
     {{#each friends as |friend|}}
     <form class="friend-form" action="/friends/unfriend" method="post">
@@ -15,3 +15,13 @@
 {{else}}
 <p>It looks like you are not following anyone.</p>
 {{/if}}
+<div id="not-friend-list" class="user-list">
+    <p>Maybe you would like to follow some of these people:</p>
+    {{#each notFriends as |notFriend|}}
+    <form class="friend-form" action="/friends/follow" method="post">
+        <input type="text" value="{{notFriend._id}}" name="friend_id" hidden />
+        <p>{{notFriend.username}}</p>
+        <input class="unfriend-button" type="submit" value="Follow" />
+    </form>
+    {{/each}}
+</div>

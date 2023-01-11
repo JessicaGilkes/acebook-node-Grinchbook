@@ -10,7 +10,6 @@
   <div class="header">
     <h1>{{author}} says</h1>
   </div>
-
   <div class="post-block">
     <div class="post-metadata">
       <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" width="200" height="200">
@@ -47,7 +46,11 @@
     <div class="post-contents">
 
       <p> {{post.message}} </p>
-      <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18061565.jpg" width="500" height="333">
+      {{#if post.photo}}
+      <img src="{{post.photo}}" width="500" height="333">
+      {{else}}
+      <p></p>
+      {{/if}}
       <div id="single-post-comments">
         <h3>Comments</h3>
         {{#each post.comments as |comment|}}

@@ -5,12 +5,14 @@ const today = new Date();
 const posts = [
   {
     message: "The blood worms at Quarks are awful!",
+    photo: "https://i.kym-cdn.com/photos/images/newsfeed/000/529/042/608.jpg",
     likes: { count: 2, voters: [siskoID, picardID] },
     author: worfID,
     date: today - 1000 * 3600 * 24 * 3,
   },
   {
     message: "Live long and prosper",
+    photo: "https://legendary-digital-network-assets.s3.amazonaws.com/wp-content/uploads/2022/04/13130941/vulcan-salute-spock-nimoy.jpeg",
     likes: { count: 1, voters: [ picardID] },
     author: spockID,
     date: today - 1000 * 24,

@@ -53,8 +53,14 @@
 
 <div class="post">
 <p> {{post.date}} </p>
-<p> {{post.message}} </p>
-<img src="{{post.photo}}" width="500" height="333">
+<h2> {{post.message}} </h2>
+
+  {{#if post.photo}}
+      <img src="{{post.photo}}" width="500" height="333">
+      {{else}}
+      <p></p>
+      {{/if}}
+
 <p>Likes {{post.likes.count}}</p>
 <!-- Trigger/Open The Modal -->
 <button id="likeBtn">Open Likes</button>

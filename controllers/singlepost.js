@@ -18,6 +18,7 @@ const SinglePostController = {
           c.dateString = timeStamp(c.date)
           console.log("gave dateString: ", c.dateString)
         })
+        post.dateString = timeStamp(post.date);
         let isLiked = post.likes.voters.map(v => v._id).indexOf(req.session.user._id) != -1
         res.render("singlepost/index", {
           post,

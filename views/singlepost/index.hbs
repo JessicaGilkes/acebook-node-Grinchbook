@@ -56,8 +56,25 @@
 <p> {{post.message}} </p>
 <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18061565.jpg" width="500" height="333">
 <p>Likes {{post.likes.count}}</p>
+
+{{#if isLiked}}
+<div class="unlikePost">
+  <form class="unlike-form" action="/singlepost/unlike" method="post">
+        <input type="text" value="{{post._id}}" name="post_id" hidden />
+        <input class="unlike-button" type="submit" value="Unlike" />
+    </form>
+</div> 
+{{else}}
+<div class="likePost">
+  <form class="like-form" action="/singlepost/like" method="post">
+        <input type="text" value="{{post._id}}" name="post_id" hidden />
+        <input class="like-button" type="submit" value="Like this post!" />
+    </form>
+</div> 
+{{/if}}
+<br /> <br />
 <!-- Trigger/Open The Modal -->
-<button id="likeBtn">Open Likes</button>
+<button id="likeBtnModal">Open Likes</button>
 
 <!-- The Modal -->
 <div id="likeButton" class="modal">
@@ -80,7 +97,7 @@
 var modal = document.getElementById("likeButton");
 
 // Get the button that opens the modal
-var btn = document.getElementById("likeBtn");
+var btn = document.getElementById("likeBtnModal");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];

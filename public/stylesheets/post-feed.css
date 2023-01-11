@@ -1,0 +1,27 @@
+.new-post-link {
+    display: block;
+    text-align: right;
+}
+
+.post-block {
+    display: flex;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.post-block:hover {
+    background: #1f3b79;
+    box-shadow: rgba(0, 0, 150, 0.35) 0px 5px 15px;
+}
+
+.post-metadata {
+    margin-right: 30px;
+}
+
+.post-metadata p {
+    line-height: 15px;
+}
+
+.post-contents {
+    font-size: large;
+}

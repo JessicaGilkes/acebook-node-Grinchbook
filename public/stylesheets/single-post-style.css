@@ -1,0 +1,13 @@
+#single-post-comments {
+    display: flex;
+    flex-direction: column;
+}
+
+.single-comment span {
+    color: gold;
+}
+
+.single-comment div p {
+    margin: 0px;
+    line-height: 32px;
+}

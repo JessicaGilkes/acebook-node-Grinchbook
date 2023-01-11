@@ -15,7 +15,7 @@ const timeStamp = (d) => {
   } else if (elapsed < week) {
     return `${Math.floor(elapsed / day)} days ago`;
   } else {
-    return d.toDateString();
+    return "On " + d.toDateString();
   }
 };
 

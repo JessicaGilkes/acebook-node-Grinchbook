@@ -1,5 +1,5 @@
 describe("Timeline", () => {
-  it("can see likes count on an old post", () => {
+  it("can see likes count on a post", () => {
     cy.task("seedUsers", "seeLikesCountOnPost")
     cy.task("seedPosts", "seeLikesCountOnPost")
     // sign in

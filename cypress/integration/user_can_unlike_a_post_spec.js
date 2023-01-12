@@ -1,5 +1,5 @@
 describe("Timeline", () => {
-  it("can open the modal", () => {
+  it("can open the singlepost page", () => {
     cy.task("seedUsers", "seeLikesCountOnPost");
     cy.task("seedPosts", "seeLikesCountOnPost");
     // sign in
@@ -10,11 +10,10 @@ describe("Timeline", () => {
 
     // Open the singlepost page
     cy.get("a[href*='/singlepost']").eq(0).click();
-    cy.get("#likeBtnModal").click();
-    cy.get(".modal-content").should("contain", "Liked by: ");
+    cy.url().should("include", "/singlepost?id=");
   });
 
-  it("can see who has liked a post", () => {
+  it("can unlike a post", () => {
     cy.task("seedUsers", "seeLikesCountOnPost");
     cy.task("seedPosts", "seeLikesCountOnPost");
     // sign in
@@ -23,9 +22,10 @@ describe("Timeline", () => {
     cy.get("#password").type("makeItSo");
     cy.get("#submit").click();
 
-    // Open the singlepost page
     cy.get("a[href*='/singlepost']").eq(1).click();
+    cy.get("input[type=submit]").eq(2).click();
+    cy.get(".post-block").should("contain", "Likes 2");
     cy.get("#likeBtnModal").click();
-    cy.get(".modal-content").should("contain", "Jean Luc");
+    cy.get(".modal-content").should("not.have.value", "Jean Luc");
   });
 });

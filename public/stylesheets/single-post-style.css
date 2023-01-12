@@ -12,6 +12,11 @@
     line-height: 32px;
 }
 
+/* .user-picture-singlepost{
+  max-width: 200px;
+  max-height: 200px;
+} */
+
 /* The Modal (background) */
 .modal {
     display: none;

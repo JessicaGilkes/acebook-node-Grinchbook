@@ -8,11 +8,18 @@
 
 <body>
   <div class="header">
-    <h1>{{author}} says</h1>
+    <h1>{{author.username}} says</h1>
+
   </div>
   <div class="post-block">
     <div class="post-metadata">
-      <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" width="200" height="200">
+      <div class="user-picture-singlepost" >
+        {{#if author.profile_pic}}
+        <img src="{{author.profile_pic}}" width="200" height="200">
+        {{else}}
+        <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" width="200" height="200">
+        {{/if}}
+      </div>
 
       <p>Likes {{post.likes.count}}</p>
       {{#if isLiked}}

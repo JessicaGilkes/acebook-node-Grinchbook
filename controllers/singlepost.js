@@ -22,7 +22,7 @@ const SinglePostController = {
         let isLiked = post.likes.voters.map(v => v._id).indexOf(req.session.user._id) != -1
         res.render("singlepost/index", {
           post,
-          author: post.author.username,
+          author: post.author,
           loggedin: req.session.user,
           likescount: post.likes.count,
           voters: post.likes.voters.map(v => v.username).join(", "),

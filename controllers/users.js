@@ -2,7 +2,7 @@ const User = require("../models/user");
 
 const UsersController = {
   New: (req, res) => {
-    res.render("users/new", {loggedin: req.session.user});
+    res.render("users/new", { loggedin: req.session.user });
   },
 
   Create: (req, res) => {
@@ -13,7 +13,7 @@ const UsersController = {
     User.findOne({ email: email }).then((user) => {
       if (user) {
         // email already in use
-        res.status(409).render("users/new",{emailinuse: true});
+        res.status(409).render("users/new", { emailinuse: true });
       } else {
         const user = new User(req.body);
         user.save((err) => {
@@ -23,8 +23,18 @@ const UsersController = {
           res.status(201).redirect("/posts");
         });
       }
-    })
-
+    });
+  },
+  Profile_pic: (req, res) => {
+    User.updateOne(
+      { _id: req.session.user._id },
+      {
+        $set: { profile_pic: req.body.profile_pic },
+      }
+    ).then((user) => {
+      req.session.user = user;
+      res.redirect("/");
+    });
   },
 };
 

@@ -6,29 +6,29 @@
 <a class="new-post-link" href="/posts/new">create new post</a>
 <ul class="posts">
   {{#each posts as |post|}}
-    <div class="post-block">
-      <div class="post-metadata">
-        <h1>{{author.username}}</h1>
-        <img
-          class="user-avatar"
-          src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
-          width="100"
-          height="100"
-        />
-        <p>{{post.likes.count}} likes</p>
-        <p>{{post.comments.length}} comments</p>
-        <p>{{post.dateString}}</p>
-        <a href="/singlepost?id={{this._id}}">View Post</a>
-      </div>
-      <div class="post-contents">
-        <a class="post-block-link" href="/singlepost?id={{post._id}}"></a>
-        <p>{{post.message}}</p>
-        {{#if post.photo}}
-          <img src="{{post.photo}}" width="200" height="150" />
+  <div class="post-block">
+    <div class="post-metadata">
+      <h1>{{author.username}}</h1>
+      <div class="user-picture-feed">
+        {{#if author.profile_pic}}
+        <img src="{{author.profile_pic}}" width="100" height="100">
         {{else}}
-          <p></p>
+        <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" width="100" height="100">
         {{/if}}
       </div>
+      <p>{{post.likes.count}} likes</p>
+      <p>{{post.comments.length}} comments</p>
+      <p>{{post.dateString}}</p>
     </div>
+    <div class="post-contents">
+      <a class="post-block-link" href="/singlepost?id={{post._id}}"></a>
+      <p>{{post.message}}</p>
+      {{#if post.photo}}
+      <img src="{{post.photo}}" width="200" height="150" />
+      {{else}}
+      <p></p>
+      {{/if}}
+    </div>
+  </div>
   {{/each}}
 </ul>

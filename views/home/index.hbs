@@ -1,3 +1,20 @@
 <h1 class="title">{{title}}</h1>
 <p id="username">Hello {{username}}</p>
+
+<div class="profile-avatar">
+    {{#if profile_pic}}
+    <img src="{{profile_pic}}" width="100" height="100">
+
+    {{else}}
+    <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" width="100" height="100">
+    {{/if}}
+    {{#if loggedin}}
+    <form id="new-post-form" action="/users/profile_pic" method="post">
+        <label for="profile_pic">Change profile picture (photo URL): </label>
+        <input id="profile_pic" type="text" name="profile_pic" value="">
+        <input type="submit" value="Submit">
+    </form>
+    {{/if}}
+</div>
+
 <p>Welcome to {{title}}</p>

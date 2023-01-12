@@ -9,7 +9,8 @@ const FriendsController = {
       .populate("friends")
       .then((user) => {
         // console.log("friendsController.Index: found", user);
-        User.find({_id: {$nin: [...user.friends, user._id]}}).then((notFriends) => {
+        User.find({ _id: { $nin: [...user.friends, user._id] } }).then(
+          (notFriends) => {
             // console.log("Not friends of ", user.username, ":", notFriends)
             res.render("friends/index", {
               loggedin: req.session.user,
@@ -19,7 +20,8 @@ const FriendsController = {
               hasNonfriends: notFriends.length > 0,
               username: req.session.user.username,
             });
-        })
+          }
+        );
       });
   },
   Unfriend: (req, res) => {
@@ -28,7 +30,10 @@ const FriendsController = {
       { _id: req.session.user._id },
       { $pull: { friends: req.body.friend_id } },
       () => {
-        res.redirect("/friends");
+        User.findOne({ _id: req.session.user._id }).then((user) => {
+          req.session.user = user;
+          res.redirect("back");
+        });
       }
     );
   },
@@ -38,7 +43,10 @@ const FriendsController = {
       { _id: req.session.user._id },
       { $push: { friends: req.body.friend_id } },
       () => {
-        res.redirect("/friends");
+        User.findOne({ _id: req.session.user._id }).then((user) => {
+          req.session.user = user;
+          res.redirect("back");
+        });
       }
     );
   },

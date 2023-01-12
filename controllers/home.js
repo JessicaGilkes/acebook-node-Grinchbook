@@ -5,7 +5,7 @@ const HomeController = {
       ? req.session.user.username
       : "valued customer";
     const profile_pic = req.session.user ? req.session.user.profile_pic : false;
-    console.log("homepage", profile_pic);
+    // console.log("homepage", profile_pic);
     res.render("home/index", {
       profile_pic,
       title: "Acebook",

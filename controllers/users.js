@@ -31,10 +31,17 @@ const UsersController = {
       {
         $set: { profile_pic: req.body.profile_pic },
       }
-    ).then((user) => {
-      req.session.user = user;
-      res.redirect("/");
-    });
+    )
+      .then(() => {
+        User.findOne({ _id: req.session.user._id }).then((user) => {
+          req.session.user = user;
+          res.redirect("/");
+        });
+      })
+      .catch((err) => {
+        console.log("usersController.Profile_pic:", err);
+        res.render("error", { err });
+      });
   },
 };
 

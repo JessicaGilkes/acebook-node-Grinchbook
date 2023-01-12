@@ -13,6 +13,8 @@ const users = [
     email: "spock@original.com",
     password: "tinaTurner",
     username: "Mr. Spock",
+    profile_pic:
+      "https://legendary-digital-network-assets.s3.amazonaws.com/wp-content/uploads/2022/04/13130941/vulcan-salute-spock-nimoy.jpeg",
     _id: spockID,
     friends: [siskoID, kirkID]
   },

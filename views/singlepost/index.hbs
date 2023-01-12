@@ -60,8 +60,8 @@
         {{/each}}
         <form class="comment-form" action="/comments/new" method="post">
           <label for="comment">New comment: </label>
-          <input id="comment" type="text" name="comment" value="" required minlength="3" maxlength="250">
-          <input id="comment" type="text" name="post_id" value="{{post._id}}" hidden>
+          <input id="new-comment" type="text" name="comment" value="" required minlength="3" maxlength="250">
+          <input id="hidden-post-id" type="text" name="post_id" value="{{post._id}}" hidden>
           <input type="submit" value="Submit">
         </form>
       </div>

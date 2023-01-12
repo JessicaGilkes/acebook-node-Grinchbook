@@ -16,4 +16,11 @@ describe("Comments on single post page", () => {
     cy.contains("p", "It's for dramatic effect");
     cy.contains("p", "And coming up: Try to say where no ONE has gone before");
   });
+  it("makes a new comment and lists it", () => {
+    cy.get("#new-comment").type(
+      "No... It really was the sixties, we didn't have any of that."
+    );
+    cy.get(".comment-form").submit();
+    cy.contains("p", "No... It really was the sixties, we didn't have any of that.")
+  });
 });

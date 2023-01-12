@@ -6,7 +6,6 @@
 <a class="new-post-link" href="/posts/new">create new post</a>
 <ul class="posts">
   {{#each posts as |post|}}
-  <a class="post-block-link" href="/singlepost?id={{post._id}}"></a>
   <div class="post-block">
     <div class="post-metadata">
       <h1>{{author.username}}</h1>
@@ -16,6 +15,7 @@
       <p>{{post.dateString}}</p>
     </div>
     <div class="post-contents">
+      <a class="post-block-link" href="/singlepost?id={{post._id}}"></a>
       <p>{{post.message}}</p>
       {{#if post.photo}}
       <img src="{{post.photo}}" width="200" height="150">

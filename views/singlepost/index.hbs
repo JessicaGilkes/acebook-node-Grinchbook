@@ -13,7 +13,7 @@
   </div>
   <div class="post-block">
     <div class="post-metadata">
-      <div class="user-picture-singlepost" >
+      <div class="user-picture-singlepost">
         {{#if author.profile_pic}}
         <img src="{{author.profile_pic}}" width="200" height="200">
         {{else}}
@@ -49,10 +49,12 @@
         </div>
       </div>
       <p> {{post.dateString}} </p>
+      {{#if userIsAuthor}}
       <form class="delete-post" action="/singlepost/delete" method="post">
-          <input type="text" value="{{post._id}}" name="post_id" hidden />
-          <input class="delete-button" type="submit" value="Delete post" />
-        </form>
+        <input type="text" value="{{post._id}}" name="post_id" hidden />
+        <input class="delete-button" type="submit" value="Delete post" />
+      </form>
+      {{/if}}
     </div>
     <div class="post-contents">
 

@@ -13,13 +13,18 @@ const SinglePostController = {
       .populate("likes.voters")
       .populate("comments.user_id")
       .then((post) => {
-        post.comments.forEach(c => {
-          console.log("SinglePostController.Index: getting dateString for ", c.content)
-          c.dateString = timeStamp(c.date)
-          console.log("gave dateString: ", c.dateString)
-        })
+        post.comments.forEach((c) => {
+          console.log(
+            "SinglePostController.Index: getting dateString for ",
+            c.content
+          );
+          c.dateString = timeStamp(c.date);
+          console.log("gave dateString: ", c.dateString);
+        });
         post.dateString = timeStamp(post.date);
-        let isLiked = post.likes.voters.map(v => v._id).indexOf(req.session.user._id) != -1
+        let isLiked =
+          post.likes.voters.map((v) => v._id).indexOf(req.session.user._id) != -1;
+        let userIsAuthor = post.author._id.toString() === req.session.user._id.toString();
         res.render("singlepost/index", {
           post,
           author: post.author,
@@ -27,6 +32,7 @@ const SinglePostController = {
           likescount: post.likes.count,
           voters: post.likes.voters.map((v) => v.username).join(", "),
           isLiked,
+          userIsAuthor,
         });
       });
   },
@@ -60,9 +66,16 @@ const SinglePostController = {
       .populate("author")
       .then((post) => {
         if (!post) {
-          res.status(404).json({ postnotfound: "No such post" + req.body.post_id});
+          res
+            .status(404)
+            .json({ postnotfound: "No such post" + req.body.post_id });
         }
-        console.log("found", post.author._id, req.session.user._id, post.author._id == req.session.user._id)
+        console.log(
+          "found",
+          post.author._id,
+          req.session.user._id,
+          post.author._id == req.session.user._id
+        );
         if (post.author._id != req.session.user._id) {
           return res.status(401).json({ notauthorized: "User not authorized" });
         }

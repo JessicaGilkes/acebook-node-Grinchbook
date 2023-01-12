@@ -2,6 +2,7 @@ const { ObjectID } = require("mongodb");
 const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
+  profile_pic: String,
   message: String,
   photo: String,
   date: Date,

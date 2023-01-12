@@ -7,7 +7,7 @@
     <form class="friend-form" action="/friends/unfriend" method="post">
         <input type="text" value="{{friend._id}}" name="friend_id" hidden />
         <p>{{friend.username}}</p>
-        <input class="unfriend-button" type="submit" value="unfollow" />
+        <input id="{{friend._id}}" class="unfriend-button" type="submit" value="Unfollow" />
     </form>
     {{/each}}
 </div>
@@ -22,7 +22,7 @@
     <form class="friend-form" action="/friends/follow" method="post">
         <input type="text" value="{{notFriend._id}}" name="friend_id" hidden />
         <p>{{notFriend.username}}</p>
-        <input class="unfriend-button" type="submit" value="Follow" />
+        <input id="{{notFriend._id}}" class="unfriend-button" type="submit" value="Follow" />
     </form>
     {{/each}}
 </div>

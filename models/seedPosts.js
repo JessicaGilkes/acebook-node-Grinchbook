@@ -1,4 +1,11 @@
-const { kirkID, picardID, siskoID, worfID, spockID } = require("./usesrIDs");
+const {
+  kirkID,
+  picardID,
+  siskoID,
+  worfID,
+  spockID,
+  commentedPostID,
+} = require("./usesrIDs");
 const Post = require("./post");
 const today = new Date();
 
@@ -12,13 +19,16 @@ const posts = [
   },
   {
     message: "Live long and prosper",
-    photo: "https://legendary-digital-network-assets.s3.amazonaws.com/wp-content/uploads/2022/04/13130941/vulcan-salute-spock-nimoy.jpeg",
-    likes: { count: 1, voters: [ picardID] },
+    photo:
+      "https://legendary-digital-network-assets.s3.amazonaws.com/wp-content/uploads/2022/04/13130941/vulcan-salute-spock-nimoy.jpeg",
+    likes: { count: 1, voters: [picardID] },
     author: spockID,
     date: today - 1000 * 24,
   },
   {
     message: "Make it so!",
+    photo:
+      "https://i.pinimg.com/originals/9d/21/b9/9d21b90454e3065485ad3ed1b4204dfa.jpg",
     likes: { count: 2, voters: [siskoID, picardID] },
     author: picardID,
     date: today - 1000 * 3600 * 5,
@@ -30,6 +40,7 @@ const posts = [
     date: new Date("1966-09-06"),
   },
   {
+    _id: commentedPostID,
     message: "These are the voyages of the starship.... Enterprise.",
     likes: { count: 1, voters: [siskoID] },
     comments: [

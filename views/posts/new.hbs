@@ -1,6 +1,8 @@
 <form id="new-post-form" action="/posts" method="post">
-  <label for="message">Message: </label>
-  <input id="message" type="text" name="message" value="" required minlength="3" maxlength="250">
+  <div>
+    <label for="message">Message: </label>
+    <textarea id="message" name="message" value="" required minlength="3" maxlength="500" rows="5" cols="40"></textarea>
+  </div>
   <label for="photo">Photo URL: </label>
   <input id="photo" type="text" name="photo" value="">
   <input type="submit" value="Submit">

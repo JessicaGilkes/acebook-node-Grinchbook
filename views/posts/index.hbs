@@ -8,14 +8,15 @@
   {{#each posts as |post|}}
   <div class="post-block">
     <div class="post-metadata">
+      <a class="post-block-link" href="/singlepost?id={{post._id}}"></a>
       <h1>{{author.username}}</h1>
       <img class="user-avatar" src="https://cdn-icons-png.flaticon.com/512/147/147144.png" width="100" height="100">
       <p>{{post.likes.count}} likes</p>
       <p>{{post.comments.length}} comments</p>
       <p>{{post.dateString}}</p>
-      <a href="/singlepost?id={{this._id}}">view post</a>
     </div>
     <div class="post-contents">
+      <a class="post-block-link" href="/singlepost?id={{post._id}}" ></a>
       <p>{{post.message}}</p>
       {{#if post.photo}}
       <img src="{{post.photo}}" width="200" height="150">

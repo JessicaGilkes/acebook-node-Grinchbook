@@ -14,9 +14,26 @@ const PostsController = {
           // console.log("controllers.Posts.Index: Getting timeStamp for", p.message);
           p.dateString = timeStamp(p.date);
           // console.log("So gave a dateString of", p.dateString);
+          p.author.isFriendOfUser =
+            req.session.user.friends.indexOf(p.author._id.toString()) !== -1;
+          p.authorIsUser =
+            p.author._id.toString() === req.session.user._id.toString();
+          console.log(
+            "postsController.Index for each:",
+            p.author.isFriendOfUser
+          );
+          console.log(
+            "postsController.Index for each:",
+            p.author._id,
+            req.session.user._id,
+            p.author._id.toString() === req.session.user._id.toString()
+          );
         });
         res.render("posts/index", { posts: posts, loggedin: req.session.user });
-      }).catch(err => {throw err});
+      })
+      .catch((err) => {
+        throw err;
+      });
   },
   New: (req, res) => {
     res.render("posts/new", { loggedin: req.session.user });

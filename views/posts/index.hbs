@@ -16,6 +16,10 @@
         <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" width="100" height="100">
         {{/if}}
       </div>
+      <form class="friend-form" action="/friends/follow" method="post">
+        <input type="text" value="{{author._id}}" name="friend_id" hidden />
+        <input id="{{author._id}}" class="unfriend-button" type="submit" value="Follow" />
+      </form>
       <p>{{post.likes.count}} likes</p>
       <p>{{post.comments.length}} comments</p>
       <p>{{post.dateString}}</p>

@@ -20,6 +20,7 @@ const {
   rikerIDString,
   troyIDString,
   worfIDString,
+  commentedPostIDString,
 } = require("../../models/usesrIDs");
 
 module.exports = (on) => {
@@ -51,6 +52,7 @@ module.exports = (on) => {
         rikerIDString,
         troyIDString,
         worfIDString,
+        commentedPostIDString,
       };
     },
     logit(message) {

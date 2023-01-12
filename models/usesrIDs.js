@@ -16,6 +16,9 @@ const rikerID = ObjectID(rikerIDString);
 const troyID = ObjectID(troyIDString);
 const worfID = ObjectID(worfIDString);
 
+const commentedPostIDString = "63bfe557ebd71d7e26d4a793";
+const commentedPostID = ObjectID(commentedPostIDString);
+
 module.exports = {
   kirkID,
   picardID,
@@ -31,4 +34,6 @@ module.exports = {
   troyIDString,
   worfIDString,
   spockIDString,
+  commentedPostID,
+  commentedPostIDString,
 };

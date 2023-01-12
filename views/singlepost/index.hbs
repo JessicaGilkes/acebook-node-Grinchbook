@@ -49,6 +49,10 @@
         </div>
       </div>
       <p> {{post.dateString}} </p>
+      <form class="delete-post" action="/singlepost/delete" method="post">
+          <input type="text" value="{{post._id}}" name="post_id" hidden />
+          <input class="delete-button" type="submit" value="Delete post" />
+        </form>
     </div>
     <div class="post-contents">
 

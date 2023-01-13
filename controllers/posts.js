@@ -14,6 +14,7 @@ const PostsController = {
           // console.log("controllers.Posts.Index: Getting timeStamp for", p.message);
           p.dateString = timeStamp(p.date);
           // console.log("So gave a dateString of", p.dateString);
+          console.log("processing post", p)
           p.author.isFriendOfUser =
             req.session.user.friends.indexOf(p.author._id.toString()) !== -1;
           p.authorIsUser =

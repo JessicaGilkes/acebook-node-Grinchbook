@@ -15,7 +15,10 @@ const UsersController = {
         // email already in use
         res.status(409).render("users/new", { emailinuse: true });
       } else {
-        const user = new User(req.body);
+        const user = new User();
+        user.email = email;
+        user.username = req.body.username;
+        user.setPassword(req.body.password);
         user.save((err) => {
           if (err) {
             throw err;

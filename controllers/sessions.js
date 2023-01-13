@@ -13,11 +13,13 @@ const SessionsController = {
     User.findOne({ email: email }).then((user) => {
       if (!user) {
         res.redirect("/sessions/new");
-      } else if (user.password != password) {
-        res.redirect("/sessions/new");
-      } else {
+      } else if (user.validPassword(password)) {
         req.session.user = user;
+        console.log("logged in as", req.session.user)
         res.redirect("/posts");
+      } else {
+        console.log("password invalid!")
+        res.redirect("/sessions/new");
       }
     });
   },

@@ -22,9 +22,9 @@ describe("Timeline", () => {
     cy.get("#password").type("makeItSo");
     cy.get("#submit").click();
 
-    cy.get("a[href*='/singlepost']").eq(1).click();
-    cy.get("input[type=submit]").eq(2).click();
+    cy.get("a[href*='/singlepost']").eq(2).click();
     cy.get(".post-block").should("contain", "Likes 2");
+    cy.get("input[type=submit]").eq(2).click();
     cy.get("#likeBtnModal").click();
     cy.get(".modal-content").should("not.have.value", "Jean Luc");
   });
